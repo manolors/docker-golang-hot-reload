@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  hotreloadtest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hotreloadtest
+    volumes:
+      - ./:/app
