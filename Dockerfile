@@ -1,3 +1,5 @@
+ARG GO_VERSION
+
 FROM golang:${GO_VERSION}
 
 RUN apt update && apt upgrade -y && \

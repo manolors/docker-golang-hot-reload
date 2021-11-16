@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        "GO_VERSION": ${GO_VERSION}
     volumes:
       - ./src/:/app
   debug-app:
@@ -11,6 +13,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.debug
+      args:
+        "GO_VERSION": ${GO_VERSION}
     ports:
       - "${PORT}:${PORT}"
     security_opt:
