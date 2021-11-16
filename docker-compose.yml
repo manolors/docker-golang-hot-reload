@@ -6,3 +6,18 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./src/:/app
+  debug-app:
+    container_name: ${CONTAINER_NAME}
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+    ports:
+      - "${PORT}:${PORT}"
+    security_opt:
+      - "seccomp:unconfined"
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./src/:/app
+    command: dlv debug --headless --listen=:${PORT} --api-version=2 --log ${MAIN_FILE}
+

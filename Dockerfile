@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM golang:${GO_VERSION}
 
 RUN apt update && apt upgrade -y && \
     apt install -y git \
